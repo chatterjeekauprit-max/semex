@@ -1,3 +1,17 @@
+## 📂 Project Architecture
+semex/
+├── run.py                 # Main entry script (python run.py <input-dir> <output-dir>)
+├── requirements.txt       # Dependencies with explicit version details
+├── README.md              # Clear setup and execution instructions
+└── models/                # Weights, pre-compiled C++/CUDA libraries & support engines
+    ├── build/             # Pre-compiled C++/CUDA shared binaries (.so)
+    │   ├── libsem_drift_cuda.so
+    │   └── libsem_drift_core.so
+    ├── sem_drift_cuda.cu  # NVIDIA GPU Source (cuFFT, Sobolev, Subpixel)
+    ├── sem_drift_core.cpp # CPU C++20 Fallback Engine (FFTW3 + AVX)
+    ├── sem_drift_engine.py# Core image restoration pipeline
+    ├── CMakeLists.txt     # Compilation configuration
+    └── failure_analysis.md# Diagnostics & literature citations
 # 🔬 SEM Drift Sub-Pixel Registration & Inspection Suite
 
 An ultra-high precision, real-time Sub-Pixel Registration and Defect Analysis Suite built for semiconductor metrology. Powered by **NVIDIA CUDA (cuFFT)** and a **C++20 multi-threaded fallback engine (FFTW3)**, this tool achieves sub-pixel alignment accuracy under **1.5 ms** latency.
@@ -31,17 +45,4 @@ $$\delta_x = \frac{\mathcal{C}(x_p+1, y_p) - \mathcal{C}(x_p-1, y_p)}{2 \left(2\
 
 ---
 
-## 📂 Project Architecture
-semex/
-├── run.py                 # Main entry script (python run.py <input-dir> <output-dir>)
-├── requirements.txt       # Dependencies with explicit version details
-├── README.md              # Clear setup and execution instructions
-└── models/                # Weights, pre-compiled C++/CUDA libraries & support engines
-    ├── build/             # Pre-compiled C++/CUDA shared binaries (.so)
-    │   ├── libsem_drift_cuda.so
-    │   └── libsem_drift_core.so
-    ├── sem_drift_cuda.cu  # NVIDIA GPU Source (cuFFT, Sobolev, Subpixel)
-    ├── sem_drift_core.cpp # CPU C++20 Fallback Engine (FFTW3 + AVX)
-    ├── sem_drift_engine.py# Core image restoration pipeline
-    ├── CMakeLists.txt     # Compilation configuration
-    └── failure_analysis.md# Diagnostics & literature citations
+
