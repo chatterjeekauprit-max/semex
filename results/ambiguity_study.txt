@@ -1,0 +1,13 @@
+WITH unique marker (normal case):
+    seed 1  err=  0.13px  psr= 32.23  amb=False
+    seed 2  err=  0.06px  psr= 37.58  amb=False
+    seed 3  err=  0.65px  psr= 26.37  amb=False
+    seed 4  err=  0.24px  psr= 21.73  amb=False
+    seed 5  err=  0.11px  psr= 32.49  amb=False
+
+  WITHOUT unique marker (pure lattice - degenerate):
+    seed 1  err=493.67px  psr=  3.73  amb=True
+    seed 2  err=244.57px  psr=  4.65  amb=True
+    seed 3  err=668.56px  psr=  4.02  amb=True
+    seed 4  err=1012.28px  psr=  4.57  amb=True
+    seed 5  err=200.71px  psr=  3.50  amb=True
